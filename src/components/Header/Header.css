@@ -1,0 +1,12 @@
+header {
+    width: 100%;
+    background-color: #343a40;
+    color: white;
+    padding: 15px;
+    padding-left: 40px;
+    margin-bottom: 50px;
+}
+
+span {
+    width: 100%;
+}
