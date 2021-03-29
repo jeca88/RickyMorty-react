@@ -17,14 +17,14 @@ class App extends Component {
 
   next = () => {
     this.setState({
-      pages: this.state.pages + 1
+      pages: this.state.pages + 1, cardList: []
     })
   }
 
   prev = () => {
     if (this.state.pages > 1) {
       this.setState({
-        pages: this.state.pages - 1
+        pages: this.state.pages - 1, cardList: []
       })
     }
   }
@@ -46,7 +46,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    
+    if (!this.state.cardList.length) {
       const url = " https://rickandmortyapi.com/api";
       const characters = url + "/character/?page=" + this.state.pages;
       fetch(characters)
@@ -56,10 +56,10 @@ class App extends Component {
 
             this.setState({
               cardList: result.results,
-           
+
             })
         );
-    
+    }
   }
 
 
@@ -71,10 +71,10 @@ class App extends Component {
       <div className="App">
         < Header />
         {!this.state.charId ? (
-          < Main setCharacter={this.setCharacter} chraracters={this.state.cardList} 
-          page={this.state.pages} next={this.next} prev={this.prev} /> ) :
-          (< Characters setCharacter={this.setCharacter} 
-          character={this.state.cardList.find((e) => e.id === this.state.charId)}/>)}
+          < Main setCharacter={this.setCharacter} chraracters={this.state.cardList}
+            page={this.state.pages} next={this.next} prev={this.prev} />) :
+          (< Characters setCharacter={this.setCharacter}
+            character={this.state.cardList.find((e) => e.id === this.state.charId)} />)}
       </div>
     );
 
