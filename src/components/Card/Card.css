@@ -37,6 +37,8 @@ button {
     margin: auto;
 }
 
-.active {
-    background-color: blue;
+.details {
+    background-color: #e66465;
+    font-size: 20px;
+    color: white;
 }
