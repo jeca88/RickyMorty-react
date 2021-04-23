@@ -3,11 +3,7 @@ import './Card.css';
 
 class Card extends Component {
     
-    state = {status: false}
-
-    changeBtnStatus = () => {
-      this.setState({status: !this.state.status})
-    }
+   
 
     render() { 
        
@@ -20,8 +16,6 @@ class Card extends Component {
                 onClick={() => this.props.setCharacter(card.id)}></img>
                     <div className="card-body">
                         <h5 className="title">{card.name}</h5>
-                        <button onClick={this.changeBtnStatus} 
-                        className={`btn ${this.state.status ? " active" : ""}`}>Like</button>
                     </div>
                 </div>
                 )
